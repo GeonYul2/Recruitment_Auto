@@ -2,9 +2,10 @@
 채용 정보 자동 수집 에이전트 - 메인 진입점
 """
 import asyncio
-from typing import Optional
+from typing import Optional, Annotated
 
 import typer
+from typer import Option, Argument
 import uvicorn
 from rich.console import Console
 from rich.table import Table
@@ -146,9 +147,9 @@ def build_static():
 
 @app.command()
 def serve(
-    host: str = "0.0.0.0",
-    port: int = 8000,
-    reload: bool = False,
+    host: Annotated[str, Option(help="서버 호스트")] = "0.0.0.0",
+    port: Annotated[int, Option(help="서버 포트")] = 8000,
+    reload: Annotated[bool, Option(help="자동 리로드")] = False,
 ):
     """웹 대시보드 서버 실행"""
     console.print(f"[bold blue]웹 대시보드를 시작합니다...[/]")
@@ -164,7 +165,7 @@ def serve(
 
 @app.command()
 def schedule(
-    interval: int = 60,
+    interval: Annotated[int, Option(help="크롤링 간격 (분)")] = 60,
 ):
     """스케줄러와 함께 웹 서버 실행"""
     console.print(f"[bold blue]스케줄러 모드로 시작합니다...[/]")
@@ -226,8 +227,8 @@ def stats():
 
 @app.command()
 def list_jobs(
-    limit: int = 20,
-    source: Optional[str] = None,
+    limit: Annotated[int, Option(help="출력할 공고 수")] = 20,
+    source: Annotated[Optional[str], Option(help="필터할 소스")] = None,
 ):
     """수집된 채용 공고 목록 출력"""
     db = Database()
