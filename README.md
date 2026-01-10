@@ -4,35 +4,29 @@
 
 ## 대시보드
 
-🔗 **https://1916571-alt.github.io/Recruitment_Auto/**
+**https://1916571-alt.github.io/Recruitment_Auto/**
 
 ## 특징
 
-- **자동 수집**: GitHub Actions가 매일 2회 (09:00, 18:00 KST) 자동 크롤링
+- **자동 수집**: GitHub Actions가 매일 1회 (09:00 KST) 자동 크롤링
 - **무료 호스팅**: GitHub Pages로 서버 비용 없이 운영
-- **실시간 필터**: 새 공고, 마감 임박, 사이트별 필터링
+- **실시간 필터**: 새 공고, 마감 임박 필터링
+- **신입 전용**: 신입/경력무관/인턴 공고만 수집
 
 ## 대상 채용 사이트
 
-| 사이트 | 상태 | 비고 |
-|--------|------|------|
-| 사람인 | ⚠️ | robots.txt 확인 필요 |
-| 잡코리아 | ⚠️ | 검색 페이지 제한 |
-| 원티드 | ✅ | API 사용 |
-| 로켓펀치 | ✅ | 허용됨 |
-| LinkedIn | ❌ | 외부 크롤러 차단 |
-| 잡알리오 | ⚠️ | 공공기관 |
+| 사이트 | 상태 |
+|--------|------|
+| 사람인 | ✅ |
 
-> ⚠️ **주의**: 개인 학습/정보 수집 목적으로만 사용하세요
+> **주의**: 개인 학습/정보 수집 목적으로만 사용하세요
 
 ## 수집 정보
 
 - 회사명 / 포지션명
 - **마감일** (D-Day 표시)
 - 경력 요건 (신입/경력무관/인턴)
-- **실습/수습 기간**
 - 근무 위치
-- 기술 스택
 - 원본 링크
 
 ## 빠른 시작
@@ -93,7 +87,7 @@ Recruitment_Auto/
 │   └── workflows/
 │       └── crawl.yml         # GitHub Actions 워크플로우
 ├── src/
-│   ├── crawlers/             # 6개 사이트 크롤러
+│   ├── crawlers/             # 사람인 크롤러
 │   ├── models/               # 데이터 모델
 │   ├── storage/              # SQLite (로컬용)
 │   ├── exporter.py           # JSON 내보내기
@@ -120,25 +114,17 @@ job_keywords = [
     "데이터 사이언티스트",
     # 원하는 키워드 추가
 ]
-
-experience_keywords = [
-    "신입",
-    "경력무관",
-    "인턴",
-]
 ```
 
 ## 자동 업데이트 스케줄
 
 - **매일 09:00 KST** (UTC 00:00)
-- **매일 18:00 KST** (UTC 09:00)
 
 수정: [.github/workflows/crawl.yml](.github/workflows/crawl.yml)
 
 ```yaml
 schedule:
   - cron: '0 0 * * *'   # 09:00 KST
-  - cron: '0 9 * * *'   # 18:00 KST
 ```
 
 ## License

@@ -13,14 +13,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from loguru import logger
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from src.crawlers import (
-    SaraminCrawler,
-    JobKoreaCrawler,
-    WantedCrawler,
-    RocketPunchCrawler,
-    LinkedInCrawler,
-    JobTalioCrawler,
-)
+from src.crawlers import SaraminCrawler
 from src.storage import Database
 from src.exporter import JSONExporter, StaticSiteBuilder
 from config import settings
@@ -32,11 +25,6 @@ console = Console()
 # 크롤러 목록
 CRAWLERS = [
     SaraminCrawler,
-    JobKoreaCrawler,
-    WantedCrawler,
-    RocketPunchCrawler,
-    LinkedInCrawler,
-    JobTalioCrawler,
 ]
 
 

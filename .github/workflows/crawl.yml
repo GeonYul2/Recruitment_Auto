@@ -1,10 +1,9 @@
 name: 채용 정보 수집
 
 on:
-  # 매일 한국시간 오전 9시, 오후 6시 실행 (UTC 0시, 9시)
+  # 매일 한국시간 오전 9시 실행 (UTC 0시)
   schedule:
     - cron: '0 0 * * *'   # 매일 09:00 KST
-    - cron: '0 9 * * *'   # 매일 18:00 KST
 
   # 수동 실행 가능
   workflow_dispatch:
