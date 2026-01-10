@@ -3,6 +3,7 @@
 """
 import asyncio
 import hashlib
+import re
 from abc import ABC, abstractmethod
 from typing import List, Optional
 from datetime import datetime
@@ -73,10 +74,11 @@ class BaseCrawler(ABC):
 
     def matches_filter(self, job: JobPosting) -> bool:
         """필터 조건에 맞는지 확인"""
-        # 제외 키워드 체크
+        # 제외 키워드 체크 (타이틀에서)
         title_lower = job.title.lower()
         for exclude in self.filter_settings.exclude_keywords:
             if exclude.lower() in title_lower:
+                logger.debug(f"제외(타이틀): {job.title} - '{exclude}'")
                 return False
 
         # 직무 키워드 체크 (OR 조건)
@@ -90,14 +92,52 @@ class BaseCrawler(ABC):
         if not job_match:
             return False
 
-        # 경력 조건 체크 (OR 조건)
-        exp_text = (job.experience_text or "").lower()
-        for exp_keyword in self.filter_settings.experience_keywords:
-            if exp_keyword.lower() in exp_text:
+        # 경력 조건 체크 - 신입 가능한 공고만 포함
+        return self._is_entry_level_friendly(job.experience_text)
+
+    def _is_entry_level_friendly(self, exp_text: Optional[str]) -> bool:
+        """신입이 지원 가능한 공고인지 확인"""
+        if not exp_text:
+            # 경력 조건이 없으면 포함
+            return True
+
+        exp_lower = exp_text.lower().strip()
+
+        # 1. 신입 가능 키워드가 있으면 바로 포함
+        entry_keywords = ["신입", "경력무관", "경력 무관", "인턴", "intern", "entry", "junior", "신입/경력", "경력/신입"]
+        for keyword in entry_keywords:
+            if keyword in exp_lower:
                 return True
 
-        # 기본적으로 경력 조건이 없으면 포함
-        return not job.experience_text
+        # 2. "경력 N년" 패턴 체크 - 경력직만 요구하면 제외
+        # 패턴: "경력 1년", "경력1년", "1년 이상", "1~3년", "경력 1-3년" 등
+        career_patterns = [
+            r'경력\s*(\d+)',           # 경력 1년, 경력1년
+            r'(\d+)\s*년\s*이상',       # 1년 이상
+            r'(\d+)\s*~\s*(\d+)\s*년',  # 1~3년
+            r'(\d+)\s*-\s*(\d+)\s*년',  # 1-3년
+            r'(\d+)\s*년\s*~',          # 1년~
+        ]
+
+        for pattern in career_patterns:
+            match = re.search(pattern, exp_lower)
+            if match:
+                # 숫자 추출
+                years = [int(g) for g in match.groups() if g and g.isdigit()]
+                if years:
+                    min_years = min(years)
+                    # 1년 이상 경력 요구하면 제외
+                    if min_years >= 1:
+                        logger.debug(f"제외(경력): '{exp_text}' - 최소 {min_years}년 요구")
+                        return False
+
+        # 3. 순수 "경력" 단어만 있고 신입 키워드 없으면 제외
+        if "경력" in exp_lower and not any(k in exp_lower for k in ["신입", "무관"]):
+            logger.debug(f"제외(경력만): '{exp_text}'")
+            return False
+
+        # 그 외의 경우 포함
+        return True
 
     @abstractmethod
     async def crawl(self) -> List[JobPosting]:
