@@ -44,6 +44,8 @@ jobs:
         run: python -m src.main crawl-to-json
         env:
           PYTHONPATH: ${{ github.workspace }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
 
       - name: 정적 사이트 생성
         run: python -m src.main build-static

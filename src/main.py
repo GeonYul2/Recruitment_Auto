@@ -2,6 +2,7 @@
 채용 정보 자동 수집 에이전트 - 메인 진입점
 """
 import asyncio
+import json
 from typing import Optional, Annotated
 
 import typer
@@ -13,16 +14,39 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from loguru import logger
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from src.crawlers import SaraminCrawler, InthisworkCrawler
+from src.crawlers import SaraminCrawler, InthisworkCrawler, GoogleSearchCrawler
 from src.storage import Database
 from src.exporter import JSONExporter, StaticSiteBuilder
+from src.core.config import get_config
+from src.models import JobPosting
 from config import settings
 
 app = typer.Typer(help="채용 정보 자동 수집 에이전트")
 console = Console()
 
 
-# 크롤러 목록
+def get_crawlers():
+    """사용 가능한 크롤러 목록 반환
+
+    환경변수 설정에 따라 크롤러를 동적으로 로드합니다.
+    """
+    config = get_config()
+    crawlers = [
+        SaraminCrawler,
+        InthisworkCrawler,
+    ]
+
+    # Google Search는 API 키가 있을 때만 활성화
+    if config.google_api_key and config.google_cse_id:
+        crawlers.append(GoogleSearchCrawler)
+        logger.info("GoogleSearchCrawler 활성화됨")
+    else:
+        logger.debug("GoogleSearchCrawler 비활성화 (API 키 또는 CSE ID 없음)")
+
+    return crawlers
+
+
+# 크롤러 목록 (기본값, 동적 로딩은 get_crawlers() 사용)
 CRAWLERS = [
     SaraminCrawler,
     InthisworkCrawler,
@@ -33,13 +57,14 @@ async def run_crawlers():
     """모든 크롤러 실행"""
     db = Database()
     total_jobs = []
+    crawlers = get_crawlers()
 
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
         console=console,
     ) as progress:
-        for CrawlerClass in CRAWLERS:
+        for CrawlerClass in crawlers:
             crawler_name = CrawlerClass.__name__
             task = progress.add_task(f"[cyan]{crawler_name} 수집 중...", total=None)
 
@@ -86,13 +111,14 @@ def crawl_to_json():
 
     async def run():
         total_jobs = []
+        crawlers = get_crawlers()
 
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             console=console,
         ) as progress:
-            for CrawlerClass in CRAWLERS:
+            for CrawlerClass in crawlers:
                 crawler_name = CrawlerClass.__name__
                 task = progress.add_task(f"[cyan]{crawler_name} 수집 중...", total=None)
 
@@ -248,6 +274,166 @@ def list_jobs(
 
     console.print(table)
     console.print(f"\n총 {len(jobs)}건 표시")
+
+
+@app.command("update-embeddings")
+def update_embeddings():
+    """채용 공고 임베딩 업데이트"""
+    console.print("[bold blue]임베딩 업데이트 시작...[/]")
+
+    async def run():
+        from src.services.embedding_service import SentenceTransformerEmbedding
+
+        config = get_config()
+
+        # jobs.json 로드
+        with open(config.jobs_json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        jobs = data.get("jobs", [])
+
+        if not jobs:
+            console.print("[yellow]저장된 채용 공고가 없습니다.[/]")
+            return
+
+        # 임베딩 서비스
+        embedding_service = SentenceTransformerEmbedding()
+
+        # 텍스트 생성
+        texts = []
+        ids = []
+        for job in jobs:
+            text = f"{job['title']} {job.get('description', '') or ''} {' '.join(job.get('tech_stack', []) or [])}"
+            texts.append(text)
+            ids.append(job['id'])
+
+        console.print(f"[cyan]{len(ids)}개 채용 공고 임베딩 생성 중...[/]")
+
+        # 배치 임베딩
+        embeddings = await embedding_service.embed_batch(texts)
+
+        # 저장
+        embedding_service.save_embeddings(ids, embeddings, "jobs")
+
+        console.print(f"[bold green]완료![/] {len(ids)}개 임베딩 저장됨")
+
+    asyncio.run(run())
+
+
+@app.command("match-profiles")
+def match_profiles():
+    """프로필과 채용 공고 매칭 후 알림"""
+    console.print("[bold blue]프로필 매칭 시작...[/]")
+
+    async def run():
+        from src.services.embedding_service import SentenceTransformerEmbedding
+        from src.services.matching_service import ProfileMatcher
+        from src.services.github_service import GitHubService
+        from src.notifiers.github_notifier import GitHubNotifier
+
+        config = get_config()
+
+        # 서비스 초기화
+        github_service = GitHubService()
+        embedding_service = SentenceTransformerEmbedding()
+        matcher = ProfileMatcher()
+        notifier = GitHubNotifier(github_service)
+
+        # 1. 프로필 로드
+        console.print("[cyan]GitHub Issues에서 프로필 로드 중...[/]")
+        issues = await github_service.get_profile_issues()
+        profiles = []
+        for issue in issues:
+            profile = github_service.parse_issue_to_profile(issue)
+            if profile:
+                profiles.append(profile)
+
+        if not profiles:
+            console.print("[yellow]등록된 프로필이 없습니다.[/]")
+            return
+
+        console.print(f"  프로필 {len(profiles)}개 로드됨")
+
+        # 2. 프로필 임베딩
+        console.print("[cyan]프로필 임베딩 생성 중...[/]")
+        profile_texts = [p.to_embedding_text() for p in profiles]
+        profile_embeddings = await embedding_service.embed_batch(profile_texts)
+        for profile, emb in zip(profiles, profile_embeddings):
+            profile.embedding = emb
+
+        # 3. 채용 공고 로드
+        console.print("[cyan]채용 공고 로드 중...[/]")
+        with open(config.jobs_json_path, "r", encoding="utf-8") as f:
+            jobs_data = json.load(f)
+
+        jobs = [JobPosting(**j) for j in jobs_data.get("jobs", [])]
+        jobs_map = {j.id: j for j in jobs}
+        console.print(f"  채용 공고 {len(jobs)}개 로드됨")
+
+        # 4. 채용 공고 임베딩 로드
+        if not embedding_service.embeddings_exist("jobs"):
+            console.print("[yellow]채용 공고 임베딩이 없습니다. update-embeddings를 먼저 실행하세요.[/]")
+            return
+
+        job_ids, job_emb_arr = embedding_service.load_embeddings("jobs")
+        job_embeddings = dict(zip(job_ids, job_emb_arr.tolist()))
+
+        # 5. 매칭 실행
+        console.print("[cyan]매칭 실행 중...[/]")
+        for profile in profiles:
+            matches = matcher.match_profile_to_jobs(
+                profile, jobs, job_embeddings
+            )
+
+            if matches:
+                comment = notifier.format_match_comment(matches, jobs_map)
+                success = await notifier.notify(profile.id, "매칭 결과", comment)
+                status = "[green]알림 전송[/]" if success else "[red]알림 실패[/]"
+                console.print(f"  #{profile.id} @{profile.github_username}: {len(matches)}건 매칭 - {status}")
+            else:
+                console.print(f"  #{profile.id} @{profile.github_username}: 매칭 없음")
+
+        console.print("[bold green]매칭 완료![/]")
+
+    asyncio.run(run())
+
+
+@app.command("list-profiles")
+def list_profiles():
+    """등록된 프로필 목록 출력"""
+
+    async def run():
+        from src.services.github_service import GitHubService
+
+        github_service = GitHubService()
+        issues = await github_service.get_profile_issues()
+
+        if not issues:
+            console.print("[yellow]등록된 프로필이 없습니다.[/]")
+            return
+
+        table = Table(show_header=True, header_style="bold")
+        table.add_column("Issue #", style="cyan")
+        table.add_column("사용자", width=15)
+        table.add_column("직무", width=15)
+        table.add_column("경력", justify="right")
+        table.add_column("기술", width=30)
+
+        for issue in issues:
+            profile = github_service.parse_issue_to_profile(issue)
+            if profile:
+                table.add_row(
+                    f"#{profile.id}",
+                    profile.github_username,
+                    profile.job_category.value,
+                    f"{profile.experience_years}년",
+                    ", ".join(profile.skills[:5]),
+                )
+
+        console.print(table)
+        console.print(f"\n총 {len(issues)}개 프로필")
+
+    asyncio.run(run())
 
 
 if __name__ == "__main__":

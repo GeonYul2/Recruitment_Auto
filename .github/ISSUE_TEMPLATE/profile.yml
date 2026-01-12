@@ -1,0 +1,81 @@
+name: 프로필 등록
+description: 채용 공고 매칭을 위한 프로필을 등록합니다
+title: "[프로필] "
+labels: ["profile"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 프로필 등록
+        채용 공고 매칭을 위한 프로필 정보를 입력해주세요.
+        매일 09:30에 매칭 결과가 이 Issue에 코멘트로 전달됩니다.
+
+  - type: input
+    id: github_username
+    attributes:
+      label: GitHub 사용자명
+      placeholder: "예: johndoe"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: job_category
+    attributes:
+      label: 희망 직무
+      options:
+        - 데이터 분석
+        - 백엔드 개발
+        - 프론트엔드 개발
+        - 풀스택 개발
+        - 기획/PM
+        - 디자인
+    validations:
+      required: true
+
+  - type: input
+    id: experience_years
+    attributes:
+      label: 경력 (년)
+      description: 신입은 0을 입력하세요
+      placeholder: "0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: skills
+    attributes:
+      label: 보유 기술
+      description: 한 줄에 하나씩 입력하세요
+      placeholder: |
+        Python
+        SQL
+        Pandas
+        Tableau
+    validations:
+      required: true
+
+  - type: textarea
+    id: certifications
+    attributes:
+      label: 자격증 (선택)
+      placeholder: |
+        정보처리기사
+        SQLD
+
+  - type: input
+    id: preferred_location
+    attributes:
+      label: 희망 근무지
+      placeholder: "서울, 판교, 재택"
+
+  - type: input
+    id: email
+    attributes:
+      label: 이메일 (뉴스레터용, 선택)
+      placeholder: "your@email.com"
+
+  - type: textarea
+    id: introduction
+    attributes:
+      label: 간단한 자기소개 (선택)
+      placeholder: "관심 분야, 경험, 목표 등"
