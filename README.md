@@ -4,7 +4,7 @@
 
 ## 대시보드
 
-**https://1916571-alt.github.io/Recruitment_Auto/**
+**https://geonyul2.github.io/Recruitment_Auto/**
 
 ## 특징
 
