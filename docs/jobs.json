@@ -1,38 +1,15 @@
 {
-  "updated_at": "2026-07-23T01:26:35.089826",
+  "updated_at": "2026-07-24T01:23:32.646919",
   "stats": {
-    "total": 503,
-    "new": 52,
-    "expiring_7days": 16,
+    "total": 502,
+    "new": 51,
+    "expiring_7days": 15,
     "by_source": {
-      "saramin": 258,
+      "saramin": 257,
       "inthiswork": 245
     }
   },
   "jobs": [
-    {
-      "id": "3f6803da3e45",
-      "title": "[병역특례/전문연구요원] 데이터분석담당자",
-      "company_name": "(주)그레이드헬스체인",
-      "company_logo": null,
-      "experience_level": "경력무관",
-      "experience_text": "경력무관",
-      "deadline": "2026-07-24T00:00:00",
-      "deadline_text": "~ 07/24(금)",
-      "internship_period": null,
-      "location": "서울마포구",
-      "salary": null,
-      "employment_type": null,
-      "requirements": [],
-      "preferred": [],
-      "tech_stack": [],
-      "description": null,
-      "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54420269&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B6%84%EC%84%9D&searchType=search&paid_fl=n&search_uuid=ff85a4e5-de13-410c-95ca-c1bd582f0ce2",
-      "crawled_at": "2026-07-20T01:23:17.799755",
-      "is_new": true,
-      "first_seen_at": "2026-07-20T01:23:57.131835"
-    },
     {
       "id": "dccb30d0e87b",
       "title": "[재택근무] 풀스택 · 프론트엔드 개발자",
@@ -373,8 +350,8 @@
       "tech_stack": [],
       "description": null,
       "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54161179&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=caa006af-0087-4eee-be88-84aaf5a25ad4",
-      "crawled_at": "2026-07-23T01:26:08.638151",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54161179&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=bd0666d0-2ef2-40ea-8021-f24a41ed0327",
+      "crawled_at": "2026-07-24T01:23:04.277508",
       "is_new": false,
       "first_seen_at": "2026-06-13T02:04:30.270079"
     },
@@ -465,8 +442,8 @@
       "tech_stack": [],
       "description": null,
       "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54377405&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=caa006af-0087-4eee-be88-84aaf5a25ad4",
-      "crawled_at": "2026-07-23T01:26:08.657137",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54377405&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=bd0666d0-2ef2-40ea-8021-f24a41ed0327",
+      "crawled_at": "2026-07-24T01:23:04.273606",
       "is_new": false,
       "first_seen_at": "2026-07-07T01:50:50.235083"
     },
@@ -488,8 +465,8 @@
       "tech_stack": [],
       "description": null,
       "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54403814&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=caa006af-0087-4eee-be88-84aaf5a25ad4",
-      "crawled_at": "2026-07-23T01:26:08.639303",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54403814&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=bd0666d0-2ef2-40ea-8021-f24a41ed0327",
+      "crawled_at": "2026-07-24T01:23:04.278787",
       "is_new": false,
       "first_seen_at": "2026-07-09T01:29:43.178451"
     },
@@ -718,8 +695,8 @@
       "tech_stack": [],
       "description": null,
       "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54502000&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=caa006af-0087-4eee-be88-84aaf5a25ad4",
-      "crawled_at": "2026-07-23T01:26:08.661340",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54502000&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=bd0666d0-2ef2-40ea-8021-f24a41ed0327",
+      "crawled_at": "2026-07-24T01:23:04.299506",
       "is_new": false,
       "first_seen_at": "2026-07-21T01:20:22.771566"
     },
@@ -11258,29 +11235,6 @@
       "first_seen_at": "2026-06-12T02:10:13.057184"
     },
     {
-      "id": "81b8c0021144",
-      "title": "[빅밸류]데이터 사이언티스트채용(신입/전문연구요원)",
-      "company_name": "주식회사 빅밸류",
-      "company_logo": null,
-      "experience_level": "경력무관",
-      "experience_text": "경력무관",
-      "deadline": null,
-      "deadline_text": "상시채용",
-      "internship_period": null,
-      "location": "서울성동구",
-      "salary": null,
-      "employment_type": null,
-      "requirements": [],
-      "preferred": [],
-      "tech_stack": [],
-      "description": null,
-      "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54426954&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=caa006af-0087-4eee-be88-84aaf5a25ad4",
-      "crawled_at": "2026-07-23T01:26:08.655011",
-      "is_new": false,
-      "first_seen_at": "2026-07-10T01:27:15.557054"
-    },
-    {
       "id": "be2f8b7e179a",
       "title": "ML Engineer(신입,전문연,경력/Reseach)",
       "company_name": "(주)데이블",
@@ -11304,6 +11258,29 @@
       "first_seen_at": "2026-07-23T01:26:35.089073"
     },
     {
+      "id": "81b8c0021144",
+      "title": "[빅밸류]데이터 사이언티스트채용(신입/전문연구요원)",
+      "company_name": "주식회사 빅밸류",
+      "company_logo": null,
+      "experience_level": "경력무관",
+      "experience_text": "경력무관",
+      "deadline": null,
+      "deadline_text": "상시채용",
+      "internship_period": null,
+      "location": "서울성동구",
+      "salary": null,
+      "employment_type": null,
+      "requirements": [],
+      "preferred": [],
+      "tech_stack": [],
+      "description": null,
+      "source": "saramin",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54426954&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=bd0666d0-2ef2-40ea-8021-f24a41ed0327",
+      "crawled_at": "2026-07-24T01:23:04.281295",
+      "is_new": false,
+      "first_seen_at": "2026-07-10T01:27:15.557054"
+    },
+    {
       "id": "bc38ea011b9d",
       "title": "데이터 사업 프로젝트 매니저(PM) 인턴 채용",
       "company_name": "플리토",
@@ -11322,7 +11299,7 @@
       "description": "플리토는 유수의 ​글로벌 ​IT ​기업들과 함께‘언어 ​장벽 없는 세계’를 만들어 ​가고 ​있는 언어 ​데이터 및 인공지능 ​서비스 기업입니다.자체 ​엔진을 ​적용한 플리토 ​AI번역과 ​전세계 ​1,400만 유저가 직접 ​참여하여인공지능 ​학습용 언어 데이터를 ​구축하는 ​플리토 ​아케이드(Arcade)를 제공하고 있습니다.또한, ​AI 디지털 ​다국어 ​이미지 번역 ​서비스와 (Image, ​Place ​Translation)AI 다국어 통번역 ​솔루션(Chat, Live ​Translation)등 글로벌 소통에필요한 가치 있는 서비스들을 끊임없이 개발하고 있습니다.이외에도비즈니스 번역 및 현지화등 다양한 서비스와 플랫폼을 통해가장 정확하고 자연스러운 언어 데이터를 글로벌 유수 기업들에 제공하고 있으며,향후 수 십조 규모로 성장할 언어 데이터 시장에서 대한민국 대표 기업으로서의입지를 굳혀가고 있습니다.‘언어의 장벽을 뛰어넘는 독보적 언어 데이터 및 인공지능 서비스 기업’플리토에서",
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/374221",
-      "crawled_at": "2026-07-23T01:26:23.448559",
+      "crawled_at": "2026-07-24T01:23:18.665738",
       "is_new": true,
       "first_seen_at": "2026-07-23T01:26:35.089073"
     },
@@ -11345,7 +11322,7 @@
       "description": "NHN PAYCOPAYCO는 간편결제 서비스를 넘어 생활밀착형 플랫폼으로 자리매김하고 있습니다. 국내 270만 여 신용카드 가맹점에서 오프라인 결제를 제공하고 각종 금융 서비스와 공공 서비스를 통해 일상 속 ‘페이코 라이프’를 실현합니다.이런 업무를 해요 (주요 업무)Hadoop 기반 DW/데이터 마트 설계 및 운영서비스별 데이터 ETL 파이프라인 개발 및 Airflow 배치 작업 운영분산 처리 환경(Trino/Spark/Hive) 내 데이터 적재 및 쿼리 최적화OLAP 분석을 위한 데이터 마트/큐브 구조 설계 및 관리데이터 표준화 및 메타데이터 관리데이터 플랫폼 효율화를 위한 자동화 과제 수행이런 분들을 찾고 있어요 (자격 요건)ETL 및 데이터 파이프라인 개발 경력 3년 이상이신 분Hadoop, Spark, Trino, Hive 등 대용량 데이터 처리 환경 경험이 있으신 분OLAP 및 분석용 데이터 모델링에 대한 이해도가 있으신 분SQL 활용 및 데이터 모델 설계/튜닝 능력을 보",
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371989",
-      "crawled_at": "2026-07-23T01:26:23.448935",
+      "crawled_at": "2026-07-24T01:23:18.666212",
       "is_new": false,
       "first_seen_at": "2026-07-18T01:15:07.287152"
     },
@@ -11368,7 +11345,7 @@
       "description": "클로버추얼패션 (CLO Virtual Fashion)은 3D 의상 시뮬레이션 알고리즘을 기반으로, 컨셉부터 디자인, 제조, 마케팅, 피팅, 스타일링까지 의상과 관련된 모든 서비스를 제공합니다.2009년 설립된 클로버추얼패션은 디지털 패션의 새로운 생태계를 만들어 가고 있습니다.의상 디자인 소프트웨어 CLO, Marvelous Designer, Jinny 와 함께, CLO-SET, CONNECT와 같은 의상 콘텐츠에 특화된 플랫폼으로 의상의 모든 여정에 관여함으로써, 효율적이고 지속 가능한 워크플로우를 구축하고 있습니다. 뿐만 아니라, 당사 솔루션을 통해 실제 의상과 디지털 의상이 서로 태그되어 CLO 시스템 내에서 기능할 수 있게 합니다.글로벌 디지털 패션 시장을 주도하고 있는 클로버추얼패션은 현재 아시아, 북미, 유럽, 남미 등 전 세계 13개국에 총 16개의 오피스를 두고 있으며, 세계 각국의 수많은 고객사를 바탕으로 점점 확장해나가고 있습니다.Position Overview이 ",
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371981",
-      "crawled_at": "2026-07-23T01:26:23.448949",
+      "crawled_at": "2026-07-24T01:23:18.666228",
       "is_new": false,
       "first_seen_at": "2026-07-18T01:15:07.287152"
     },
@@ -11391,7 +11368,7 @@
       "description": "Recruiter Says,CS운영기획팀은 카카오뱅크 고객센터 협력사의 전반적인 운영과 기획 업무를 총괄하고 있습니다. 최적의 인력 예측과 투입을 통해 협력사를 안정적으로 운영하며, 최고의 성과를 이끌어내기 위한 고객센터 SLA(서비스 수준 협약)를 기획합니다. 특히, 단순히 고객의 문의를 처리하는 것을 넘어 데이터를 기반으로 고객의 불편함을 미리 찾아 해소하는 ‘선제적 운영’을 지향합니다. 고객의 목소리(VOC)가 실제 서비스 개선으로 이어지는 모든 과정을 기획하고 실행하는 것이 저희의 핵심 역할입니다.  이번에 합류하실 CS 데이터 분석 담당자는 저희 팀이 데이터 기반의 합리적인 의사결정을 내리고, 더 나은 고객 경험을 설계하는 데 핵심적인 역할을 해 주실 분입니다.  데이터 속에서 문제의 본질을 파악하고 해결책을 도출하는 데 즐거움을 느끼는 분, 도출된 인사이트와 아이디어를 동료들과 적극적으로 공유하고 실제 운영과 서비스 개선으로 옮기는 추진력으로 저희와 함께 성장하실 분을 기",
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371851",
-      "crawled_at": "2026-07-23T01:26:23.448992",
+      "crawled_at": "2026-07-24T01:23:18.666280",
       "is_new": false,
       "first_seen_at": "2026-07-18T01:15:07.287152"
     },
@@ -11414,7 +11391,7 @@
       "description": "NICE인베스팅에서 자본시장 ​정보 ​서비스의 ​새로운 기준을 ​함께 만들어갈 인재를 모십니다.탄탄한 ​전문성을 ​바탕으로 저희와 ​함께 도전하고 성취감을 ​나누실 분들의 ​많은 ​관심과 지원 ​부탁드립니다.[조직 ​소개]NICE인베스팅은 ​자본시장에 특화된 정보 ​제공과 ​지수(Index) 사업을 전문으로 ​하는, ​NICE평가정보(주)에서 ​100% 출자하여 설립한 ​자회사입니다.실질적이고 신뢰할 ​수 ​있는 정보, ​안정적이고 효율적인 ​서비스 ​제공을 통하여 자본시장 ​참여자들이 믿고 ​활용할 수 있는 기준과 근거를 제공하는 기업이 되는 것을 목표로 합니다.[채용 절차]서류전형 > 면접(실무/임원) > 처우협의/신원조회/건강검진 > 최종합격지원서 접수: 적격자 채용 시 조기 마감될 수 있습니다.전형 프로세스, 채용 일정 및 입사 예정 시기는 당사 사정에 따라 변경될 수 있습니다.[채용 부문]서비스 기획 및 데이터 오퍼레이션 담당(Service Strategist & Data ",
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371775",
-      "crawled_at": "2026-07-23T01:26:23.449015",
+      "crawled_at": "2026-07-24T01:23:18.666304",
       "is_new": false,
       "first_seen_at": "2026-07-18T01:15:07.287152"
     },
@@ -11437,7 +11414,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371318",
-      "crawled_at": "2026-07-23T01:26:23.449077",
+      "crawled_at": "2026-07-24T01:23:18.666358",
       "is_new": false,
       "first_seen_at": "2026-07-17T01:22:38.431882"
     },
@@ -11460,7 +11437,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371219",
-      "crawled_at": "2026-07-23T01:26:23.449092",
+      "crawled_at": "2026-07-24T01:23:18.666373",
       "is_new": false,
       "first_seen_at": "2026-07-17T01:22:38.431882"
     },
@@ -11483,7 +11460,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371093",
-      "crawled_at": "2026-07-23T01:26:23.449122",
+      "crawled_at": "2026-07-24T01:23:18.666409",
       "is_new": false,
       "first_seen_at": "2026-07-16T01:19:09.820223"
     },
@@ -11506,7 +11483,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/371084",
-      "crawled_at": "2026-07-23T01:26:23.449137",
+      "crawled_at": "2026-07-24T01:23:18.666436",
       "is_new": false,
       "first_seen_at": "2026-07-16T01:19:09.820223"
     },
@@ -11529,7 +11506,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/370968",
-      "crawled_at": "2026-07-23T01:26:23.449178",
+      "crawled_at": "2026-07-24T01:23:18.666482",
       "is_new": false,
       "first_seen_at": "2026-07-16T01:19:09.820223"
     },
@@ -11552,7 +11529,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/370881",
-      "crawled_at": "2026-07-23T01:26:23.449216",
+      "crawled_at": "2026-07-24T01:23:18.666526",
       "is_new": false,
       "first_seen_at": "2026-07-16T01:19:09.820223"
     },
@@ -11575,7 +11552,7 @@
       "description": null,
       "source": "inthiswork",
       "source_url": "https://inthiswork.com/archives/369904",
-      "crawled_at": "2026-07-23T01:26:23.449255",
+      "crawled_at": "2026-07-24T01:23:18.666567",
       "is_new": false,
       "first_seen_at": "2026-07-14T01:12:56.598662"
     }
