@@ -1,38 +1,15 @@
 {
-  "updated_at": "2026-09-04T01:38:18.729917",
+  "updated_at": "2026-09-05T01:39:52.119901",
   "stats": {
     "total": 589,
     "new": 49,
-    "expiring_7days": 15,
+    "expiring_7days": 16,
     "by_source": {
       "saramin": 309,
       "inthiswork": 280
     }
   },
   "jobs": [
-    {
-      "id": "d1fcaeef24bc",
-      "title": "[쿠팡] CXDX Junior PM (데이터 분석PM)",
-      "company_name": "쿠팡(주)",
-      "company_logo": null,
-      "experience_level": "신입",
-      "experience_text": "신입",
-      "deadline": "2026-09-05T00:00:00",
-      "deadline_text": "~ 09/05(토)",
-      "internship_period": null,
-      "location": "서울송파구",
-      "salary": null,
-      "employment_type": null,
-      "requirements": [],
-      "preferred": [],
-      "tech_stack": [],
-      "description": null,
-      "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54672184&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B6%84%EC%84%9D&searchType=search&paid_fl=n&search_uuid=672533cc-0fe5-4636-b6c2-8d75fd711dff",
-      "crawled_at": "2026-08-19T00:29:38.420444",
-      "is_new": false,
-      "first_seen_at": "2026-08-07T01:58:53.496990"
-    },
     {
       "id": "b61911a2f87c",
       "title": "PlatformData Analyst인턴/계약직 채용",
@@ -379,6 +356,29 @@
       "first_seen_at": "2026-07-22T01:18:43.570381"
     },
     {
+      "id": "618a6a4c7e0a",
+      "title": "2026 하반기 인터엑스 대규모 PM 채용",
+      "company_name": "(주)인터엑스",
+      "company_logo": null,
+      "experience_level": "경력무관",
+      "experience_text": "경력무관",
+      "deadline": "2026-09-13T00:00:00",
+      "deadline_text": "~ 09/13(일)",
+      "internship_period": null,
+      "location": "대구수성구",
+      "salary": null,
+      "employment_type": null,
+      "requirements": [],
+      "preferred": [],
+      "tech_stack": [],
+      "description": null,
+      "source": "saramin",
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54895689&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=b2eb09ff-93d7-47f3-8d39-ef3a47dd8027",
+      "crawled_at": "2026-09-05T01:39:45.061157",
+      "is_new": true,
+      "first_seen_at": "2026-09-05T01:39:52.119361"
+    },
+    {
       "id": "8d309d169d28",
       "title": "Data Product Manager (Mart/API)",
       "company_name": "토스뱅크(주)",
@@ -672,9 +672,9 @@
       "tech_stack": [],
       "description": null,
       "source": "saramin",
-      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54914017&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=0f005887-5b9e-4b4c-9a88-4e4bae26e4cc",
-      "crawled_at": "2026-09-04T01:38:04.377919",
-      "is_new": true,
+      "source_url": "https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=search&rec_idx=54914017&location=ts&searchword=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8&searchType=search&paid_fl=n&search_uuid=b2eb09ff-93d7-47f3-8d39-ef3a47dd8027",
+      "crawled_at": "2026-09-05T01:39:45.013662",
+      "is_new": false,
       "first_seen_at": "2026-09-02T01:39:18.921820"
     },
     {
